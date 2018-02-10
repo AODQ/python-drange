@@ -3,6 +3,7 @@ Inspired by DLang's ranges. The inspiration is that I'm dissapointed by python's
 
 
 # Features 
+
   Static Typing with 'Any' and Variant option
   Memory pool with proper slices [Slices do not copy unless modified]
   Many different range types:
@@ -18,9 +19,9 @@ Inspired by DLang's ranges. The inspiration is that I'm dissapointed by python's
 # Examples
 
   assert(Iota(1, 11).Reduce(lambda x, y: x-y) == -53)
-  # Retro requires a bidirectional range, thus iota needs to be copied from a
-  # forward range to a new array
   assert(Iota(1, 11).Retro().Reduce(lambda x, y: x-y) == -44)
+  
+Retro requires a bidirectional range, thus iota needs to be copied from a forward range to a new array
 
   class FibonacciRange:
     Empty = InfiniteEmpty()
