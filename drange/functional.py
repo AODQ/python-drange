@@ -1,7 +1,7 @@
 "Many useful chaining and lazy-eval functions that operate on ranges"
-from drange_primitives import *
-from drange_interfaces import *
-from drange           import *
+from .primitives import *
+from .interfaces import *
+from .           import *
 
 # I need to figure out how to remove duplicate from here and drange...
 class UFCS_Mixin(object):
@@ -32,7 +32,7 @@ class UFCS_Mixin(object):
     Pop_back_n(trange, n)
     return trange
   def __iter__(s):
-    from drange_primitives import PyIter
+    from .primitives import PyIter
     return PyIter(s)
 
 class _BaseImpl(UFCS_Mixin):
@@ -66,11 +66,11 @@ def Take(drange, amt):
 
 class _JoinImpl(_BaseImpl):
   def __init__(s, drange, dlambda):
-    from drange import Range
+    from . import Range
     super().__init__(drange)
     s.dlambda = dlambda;
   def Front(s):
-    from drange import Range
+    from . import Range
     s.drt = Range()
     while True:
       if ( s.drange.Empty() ): break;
@@ -219,7 +219,7 @@ class _ChunksImpl(_BaseImpl):
     super().__init__(drange)
     s.chunksize = chunksize
   def Front(s):
-    from drange import Range
+    from . import Range
     bchunk = Range()
     for i in range(0, s.chunksize):
       if ( s.drange.Empty() ):
@@ -251,12 +251,12 @@ class _ChainImpl(_BaseImpl):
     return rval
   Empty = Front_empty
   def Save(s):
-    from drange import Range
+    from . import Range
     return _ChainImpl(Try_save(Range(s.front) + s.drange))
   RStr = lambda s: "Chain"
 def Chain(*oranges):
   # Chain a range by multiple ranges lazily
-  from drange import Range
+  from . import Range
   orange = Range()
   for i in oranges:
     assert(Is_input(i))
@@ -296,7 +296,7 @@ class _SplitImpl(_BaseImpl):
     super().__init__(drange)
     s.fambda = fambda
   def Front(s):
-    from drange import Range
+    from . import Range
     bchunk = Range()
     while not s.drange.Empty():
       val = s.drange.Front()
@@ -344,7 +344,7 @@ def Choose(lrange, rrange, lbool):
 
 def Array(drange):
   """ Computes lazy range, returns Range of results """
-  from drange import Range
+  from . import Range
   assert Is_input(drange)
   g = Try_save(drange)
   orange = Range()
@@ -356,7 +356,7 @@ def Array(drange):
 
 def PArray(drange):
   """ Computes lazy range, returns python array of results """
-  from drange import Range
+  from . import Range
   assert Is_input(drange)
   g = Try_save(drange)
   orange = []
@@ -386,4 +386,3 @@ def Print_all(drange, recurse=0):
       print(" "*(recurse+1) + front.__str__())
   if ( recurse == 0 ):
     print("------------------------------------")
-

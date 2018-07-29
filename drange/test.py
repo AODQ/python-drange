@@ -1,4 +1,5 @@
-from drange import *
+from . import *
+
 # Test input ranges
 input_range = int|InputRange(10, 20, 30)
 assert(input_range.Front() == 10)

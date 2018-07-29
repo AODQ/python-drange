@@ -17,10 +17,10 @@ Restrictions:
 """
 
 """base Range implementation"""
-from drange_functional import *
-from drange_primitives import *
-from drange_interfaces import *
-from drange_files import *
+from .functional import *
+from .primitives import *
+from .interfaces import *
+from .files import *
 
 class Range(RandomAccessRange, OutputRange, UFCS_Mixin):
   """ The 'array' implementation of range; giving power of ranges with
@@ -130,3 +130,4 @@ def FOR(bindings, body, env=None):
 # being defined.
 if ( __name__ == "__main__" ):
   pass
+

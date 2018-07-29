@@ -1,4 +1,4 @@
-from drange import *
+from . import *
 
 class File(UFCS_Mixin):
   def __init__(s, fil):

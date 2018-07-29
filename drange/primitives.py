@@ -1,7 +1,7 @@
 """This module contains many utilities for working with custom ranges, such as
    static introspection, along with convenience functions for manipulating
    ranges"""
-from drange_interfaces import *
+from .interfaces import *
 
 def Is_input(drange):
   return (hasattr(drange, "Empty") and hasattr(drange, "Front"))
@@ -107,7 +107,7 @@ def Walk_length(drange):
   return amt
 
 def StrRange(_str):
-  from drange import Range
+  from . import Range
   return Range(*list(_str))
 
 def PyRange(_drange):

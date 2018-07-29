@@ -1,8 +1,15 @@
 # Python Ranges
-Inspired by DLang's ranges. The inspiration is that I'm dissapointed by python's current approach to iteration and functional programming. Features;
 
+Inspired by DLang's ranges. The inspiration is that I'm dissapointed by python's
+current approach to iteration and functional programming. Features;
 
-# Features 
+# Installation
+
+    git clone https://github.com/AODQ/python-drange.git
+    cd python-drange
+    sudo pip install .
+
+# Features
 
     Static Typing with 'Any' and Variant option
     Memory pool with proper slices [Slices do not copy unless modified]
