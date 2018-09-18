@@ -1,7 +1,7 @@
 # Python Ranges
 
 Inspired by DLang's ranges. The inspiration is that I'm dissapointed by python's
-current approach to iteration and functional programming. Features;
+current approach to iteration and functional programming.
 
 # Installation
 
